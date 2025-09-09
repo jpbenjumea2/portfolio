@@ -6,7 +6,7 @@ The technical throughline is consistent: environment variables and TLS recommend
 
 ## Repositories
 - Ansible IoT Edge (`../ansible-iot-edge/`)
-  - Idempotent playbooks to provision and maintain edge hosts (Raspberry Pi and Ubuntu). Includes SSH key distribution, system patching, DNS updates, optional k3s prerequisites, a Node‑RED install scaffold, and utilities (reboot, boot tweaks, SSH helper). Supports Ubuntu 22.04/24.04 and Raspbian Buster.
+  - Idempotent playbooks to provision and maintain edge hosts (Raspberry Pi -Raspbian and Ubuntu- and Ubuntu servers). Includes SSH key distribution, system patching, DNS updates, optional k3s prerequisites, a Node‑RED install scaffold, and utilities (reboot, boot tweaks, SSH helper). Supports Ubuntu 22.04/24.04 and Raspbian Buster.
 - Node‑RED Industrial Flows (`../node-red-industrial-flows/`)
   - Flows for ingestion and normalization of industrial signals (PLC Modbus/S7, MQTT, HTTP) and RFID traceability. They publish to InfluxDB and an Empowerment API with controlled routes and backpressure gates. Requires Node‑RED 4.0 on Node.js 22 and palettes: node-red-contrib-influxdb, node-red-contrib-s7, node-red-contrib-queue-gate, node-red-contrib-modbus (plus built‑in MQTT/HTTP).
 - Observability Stack (`../observability-stack/`)
@@ -17,19 +17,18 @@ The technical throughline is consistent: environment variables and TLS recommend
 ## What to Value
 - Reliable edge automation: small, composable playbooks with safe `--check` previews.
 - Applied industrial integration: Node‑RED flows with PLC connectors, normalization, and backpressure control.
-- Telemetry and traceability: decoupled Python pipelines (publisher/consumer) and ready‑to‑import Grafana dashboards.
-- Good practices: dataclasses, rotating logging, environment‑based configuration, and clear version control.
+- Telemetry and traceability: decoupled Python pipelines and Grafana dashboards.
 
 ## Reference Versions
 - Node‑RED 4.0 and Node.js 22
 - Ubuntu 22.04 and 24.04; Raspbian Buster
 - Python 3.13
 
-## How to Review (Recruiter Guide)
-- Read each folder’s README for scope and setup.
+## How to Review
+- Read each folder’s README for scope.
 - In Ansible, review `playbooks/` and the example inventory to understand group targeting.
-- In Node‑RED, import a flow and validate dependencies via the Palette Manager (use synthetic inputs if no hardware is available).
-- In Observability, create data sources and import the JSON to review dashboard structure.
+- In Node‑RED, import a flow and validate dependencies via the Palette Manager.
+- In Observability, import the JSON to review dashboard structure.
 - In Python, review models, handlers, and watchers for typing, separation of concerns, and error handling.
 
 ## License and Contact
